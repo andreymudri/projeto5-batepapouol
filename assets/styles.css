@@ -1,0 +1,45 @@
+body{
+width: 375px;
+height: 100vh;
+position:fixed;
+left: 0px;
+top: 0px;
+background-color: darkgreen;
+}    
+header {
+    height: 80px;
+    width: 375px;
+    position:fixed;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    background-color: darkslateblue;
+z-index: 1;
+}
+
+header ion-icon{
+    Width:42.19px;
+Height:30.94px;
+}
+header img, header ion-icon,
+footer ion-icon, footer input{
+    margin-left: 23px;
+    margin-right: 23px;
+    size:auto;
+}
+
+footer{
+    position: absolute;
+    width: 375px;
+    height: 80px;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    background: crimson;    
+}
