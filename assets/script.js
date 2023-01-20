@@ -50,16 +50,16 @@ function atualizar() {
 function mostrarMensagem(msg) {
     if (msg.type === 'status') {
         chat.innerHTML += ` 
-  <div class="chatmsg status"> ${msg.time} <strong>${msg.from}</strong> ${msg.text} </div>`
+  <div class="chatmsg status" data-test="message"> ${msg.time} <strong>${msg.from}</strong> ${msg.text} </div>`
     }
     if (msg.type === 'message') {
         chat.innerHTML += ` 
-    <div class="chatmsg"> ${msg.time} <strong>${msg.from}</strong> para todos: ${msg.text} </div>`
+    <div class="chatmsg" data-test="message"> ${msg.time} <strong>${msg.from}</strong> para todos: ${msg.text} </div>`
     }
     
     if (msg.type === 'private_message' && (username === msg.to || username === msg.from)) {
         chat.innerHTML += ` 
-    <div class="chatmsg pvt"> ${msg.time} <strong>${msg.from}</strong> reservadamente para ${msg.to} ${msg.text} </div>`
+    <div class="chatmsg pvt" data-test="message"> ${msg.time} <strong>${msg.from}</strong> reservadamente para ${msg.to} ${msg.text} </div>`
     }
 
 }
