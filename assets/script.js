@@ -66,5 +66,20 @@ function mostrarMensagem(msg) {
 function focarUltimaMSG() {
     const Ultimamsg = document.querySelector("#chat .chatmsg:last-child");
     Ultimamsg.scrollIntoView();
-    console.log(Ultimamsg)
+    console.log(Ultimamsg);
+}
+
+function enviarMensagem() {
+    let objMsg = {
+        from: "nome do usuário",
+        to: "Todos",
+        text: "mensagem digitada",
+        type: "message" // ou "private_message" para o bônus
+    }
+    objMsg.text = querySelector('input').value;
+    objMsg.from = username;
+    console.log("botao clicado");
+    objMsg.axios.post('https://mock-api.driven.com.br/api/v6/uol/messages');
+    objMsg.then(atualizar);
+    objMsg.catch(erro);
 }
