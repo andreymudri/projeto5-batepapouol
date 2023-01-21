@@ -1,5 +1,11 @@
 let username;
 let chat = document.querySelector('#chat');
+let objMsg = {
+    from: "",
+    to: "Todos",
+    text: "mensagem digitada",
+    type: "message" 
+}
 entrarSala();
 
 function entrarSala(){
@@ -54,12 +60,12 @@ function mostrarMensagem(msg) {
     }
     if (msg.type === 'message') {
         chat.innerHTML += ` 
-    <div class="chatmsg" data-test="message"> ${msg.time} <strong>${msg.from}</strong> para todos: ${msg.text} </div>`
+    <div class="chatmsg" data-test="message"> ${msg.time} <strong>${msg.from}</strong> para <strong>Todos</strong>: ${msg.text} </div>`
     }
     
-    if (msg.type === 'private_message' && (username === msg.to || username === msg.from)) {
+    if (msg.type === 'private_message' && (username.name === msg.to || username.name === msg.from)) {
         chat.innerHTML += ` 
-    <div class="chatmsg pvt" data-test="message"> ${msg.time} <strong>${msg.from}</strong> reservadamente para ${msg.to} ${msg.text} </div>`
+    <div class="chatmsg pvt" data-test="message"> ${msg.time} <strong>${msg.from}</strong> reservadamente para <strong>${msg.to}</strong>: ${msg.text} </div>`
     }
 
 }
@@ -68,18 +74,16 @@ function focarUltimaMSG() {
     Ultimamsg.scrollIntoView();
     console.log(Ultimamsg);
 }
-
+function erromsg() {
+    alert('Erro ao postar mensagem.');
+    window.location.reload();
+}
 function enviarMensagem() {
-    let objMsg = {
-        from: "nome do usuário",
-        to: "Todos",
-        text: "mensagem digitada",
-        type: "message" // ou "private_message" para o bônus
-    }
-    objMsg.text = querySelector('input').value;
-    objMsg.from = username;
+    objMsg.text = document.querySelector('.input-message').value;
+    objMsg.from = username.name;
     console.log("botao clicado");
-    objMsg.axios.post('https://mock-api.driven.com.br/api/v6/uol/messages');
-    objMsg.then(atualizar);
-    objMsg.catch(erro);
+    const Postarmsg = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',objMsg);
+    Postarmsg.then(atualizar);
+    Postarmsg.catch(erromsg);
+    document.querySelector('.input-message').value = '';
 }

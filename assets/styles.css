@@ -55,7 +55,12 @@ footer{
 
 .chatmsg {
     padding: 12px;
-    margin-bottom: 2px;
+    margin-bottom: 3px;    
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
 }
 
 .status {
@@ -63,4 +68,7 @@ footer{
 }
 .pvt {
     background-color: #FFDEDE;
+}
+strong {
+    font-weight: bold;
 }
