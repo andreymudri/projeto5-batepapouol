@@ -25,6 +25,10 @@ header ion-icon{
     Width:42.19px;
 Height:30.94px;
 }
+footer  ion-icon{
+    width:  26px;
+    height: 26px;
+}
 header img, header ion-icon,
 footer ion-icon, footer input{
     margin-left: 23px;
@@ -71,4 +75,7 @@ line-height: 20px;
 }
 strong {
     font-weight: bold;
+}
+span {
+    color: #AAAAAA;
 }
